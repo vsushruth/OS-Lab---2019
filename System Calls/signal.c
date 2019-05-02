@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<fcntl.h>
+#include<signal.h>
+void handle_sigint(int sig) 
+{ 
+    printf("Caught signal %d\n", sig); 
+} 
+int main() 
+{ 
+    signal(SIGINT, handle_sigint); 
+    while(1);
+    alarm(5);
+    return 0; 
+} 
